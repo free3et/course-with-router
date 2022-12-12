@@ -5,7 +5,9 @@ export const Layout = () => {
   return (
     <main>
       <nav>
-        <NavLink to={ROUTES.lessons}>Home</NavLink>
+        <NavLink to={ROUTES.lessons} style={{ background: "#447ec4" }}>
+          Back
+        </NavLink>
       </nav>
       <Outlet></Outlet>
     </main>
