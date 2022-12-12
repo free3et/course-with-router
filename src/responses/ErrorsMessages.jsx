@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 const ErrorMessagesBlock = styled.div`
   color: #d10062;
-
+  margin: 2.5em auto;
   font-size: 1.2em;
 `;
 
@@ -13,7 +13,7 @@ export function ErrorMessages(error) {
   useEffect(() => {
     switch (true) {
       case error.error.cause == 500:
-        setCause("Network error 500: Internal Server Error");
+        setCause("Network error 500: Internal Server Error. Please, try again");
         break;
       case error.error.cause == 404:
         setCause("Let's try to find this word");
