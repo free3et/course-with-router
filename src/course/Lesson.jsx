@@ -91,49 +91,51 @@ export const Lesson = () => {
   if (response.data === undefined) return;
 
   return (
-    <div className="lesson_card">
-      {Object.values(response.data).map((lesson, index) =>
-        lesson.name === lesId ? (
-          <StyledForm key={index}>
-            <h2>Title: {lesson.title}</h2>
-            <h3>Type: {lesson.type}</h3>
-            <LinksBlock className="links_block">
-              <a href={lesson.youtube} target="_blank">
-                See On Youtube
-              </a>
-            </LinksBlock>
-            {lesson.keyPoints.length > 0 && (
-              <div>
-                <h4>Key Points:</h4>
-                <ul>
-                  {lesson.keyPoints.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            <div>
-              <h4>Links</h4>
+    <>
+      <div className="lesson_card">
+        {Object.values(response.data).map((lesson, index) =>
+          lesson.name === lesId ? (
+            <StyledForm key={index}>
+              <h2>Title: {lesson.title}</h2>
+              <h3>Type: {lesson.type}</h3>
               <LinksBlock className="links_block">
-                {lesson.links.map((link) => {
-                  Object.values(link);
-                  return (
-                    <a
-                      className="hometask_links"
-                      href={link[1]}
-                      key={link}
-                      target="_blank"
-                    >
-                      {link[0]}
-                    </a>
-                  );
-                })}
+                <a href={lesson.youtube} target="_blank">
+                  See On Youtube
+                </a>
               </LinksBlock>
-            </div>
-          </StyledForm>
-        ) : null
-      )}
-    </div>
+              {lesson.keyPoints.length > 0 && (
+                <div>
+                  <h4>Key Points:</h4>
+                  <ul>
+                    {lesson.keyPoints.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div>
+                <h4>Links</h4>
+                <LinksBlock className="links_block">
+                  {lesson.links.map((link) => {
+                    Object.values(link);
+                    return (
+                      <a
+                        className="hometask_links"
+                        href={link[1]}
+                        key={link}
+                        target="_blank"
+                      >
+                        {link[0]}
+                      </a>
+                    );
+                  })}
+                </LinksBlock>
+              </div>
+            </StyledForm>
+          ) : null
+        )}
+      </div>
+    </>
   );
 };
