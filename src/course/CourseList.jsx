@@ -25,6 +25,32 @@ const Card = styled.div`
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.2);
   color: #fff;
   text-decoration: none;
+
+  a {
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 10px auto 15px;
+    padding: 0.6em 1.2em;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: #646cff;
+    color: #ffffff;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: border, background-color 0.3s;
+
+    &:hover {
+      border: 1px solid #4b1549;
+      background-color: #60226f;
+      color: #ffffff;
+    }
+  }
+
+  h3 {
+    margin: 1em 0;
+  }
 `;
 export const CourseList = ({ initialCouses }) => {
   if (initialCouses === undefined) return;
@@ -35,7 +61,7 @@ export const CourseList = ({ initialCouses }) => {
           <Card key={index}>
             <NavLink className="read-more" to={ROUTES.lesson(lesson.name)}>
               To card
-              </NavLink>
+            </NavLink>
 
             <h2>Title: {lesson.title}</h2>
             <h3>Type: {lesson.type}</h3>
